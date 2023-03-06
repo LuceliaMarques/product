@@ -1,0 +1,18 @@
+name: ' Obsoleto issue'
+on:  
+  schedule: 
+  - cron: "0 8 * * *" 
+permissions:
+  issues: write
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v7.0.0
+        with:
+          stale-issue-message: 'This issue is stale because it has been open x days with no activity. Remove stale label or comment or this will be closed in 1 days.'
+          stale-issue-label: 'no-issue-activity'
+          days-before-issue-stale: 1
+          days-before-issue-close: 2
+          close-issue-message: 'This issue was closed because it has been stalled for 5 days with no activity.'
+          close-issue-reason: 'not_planned'
